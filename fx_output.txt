@@ -1,0 +1,35 @@
+=== 1. Trade reconciliation: platform vs. client TMS ===
+Trades on platform: 2,000 | rows in TMS: 1,971
+Breaks found: 116 (5.8% of trades)
+break_type
+Missing in TMS         38
+Value date mismatch    33
+Notional mismatch      24
+Rate mismatch          12
+Duplicate in TMS        9
+Clients with most breaks: Corp_29 (7), Corp_39 (6), Corp_32 (5)
+Planted errors detected: 107/107 trades + 9 duplicates
+
+=== 2. Client request analytics (1,500 requests) ===
+                         requests  median_resolution_h  sla_breach_rate  escalation_rate  share_of_breaches
+category                                                                                                   
+User access / password        375                 1.28             0.00             0.01               0.00
+Trade query / amendment       259                 5.27             0.00             0.11               0.00
+Onboarding & setup            236                15.75             0.30             0.14               0.32
+TMS interface / STP           212                24.42             0.54             0.38               0.52
+Settlement instructions       187                 7.86             0.05             0.11               0.05
+Product question              119                 2.29             0.00             0.04               0.00
+Regulatory reporting          112                13.51             0.24             0.17               0.12
+
+Overall: median first response 20 min, SLA breach rate 14.7%, escalation rate 12.7%
+Insight: TMS/STP issues are 14% of requests but 52% of all SLA breaches.
+Insight: 375 password/access tickets (25%) -> self-service reset could remove ~300 tickets per period.
+
+=== 3. Onboarding funnel (60 new client organisations, days per step) ===
+Contract & KYC documents            5.8
+Legal entity & user setup           1.6
+Liquidity provider relationships    4.8
+TMS / STP interface test            7.9
+User training                       0.7
+Go-live                             0.7
+Median total time to go-live: 24.4 days; bottleneck: TMS / STP interface test (37% of total)
